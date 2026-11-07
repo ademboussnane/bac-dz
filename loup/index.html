@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لعبة الذئاب والقرويين الاحترافية</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="logo-icon"><i class="fa-solid fa-moon"></i></div>
+            <h1>لعـبة <span>الذئاب</span></h1>
+            <div id="gamePhaseBadge" class="phase-badge"><i class="fa-solid fa-users-gear"></i> مرحلة إعداد القرية</div>
+        </header>
+
+        <!-- Setup Screen -->
+        <section id="setupScreen" class="screen active">
+            <div class="card glow-card">
+                <h2><i class="fa-solid fa-signs-post"></i> تسجيل أهل القرية</h2>
+                <div class="input-group">
+                    <input type="text" id="playerNameInput" placeholder="أدخل اسم اللاعب...">
+                    <button id="addPlayerBtn"><i class="fa-solid fa-user-plus"></i></button>
+                </div>
+                <ul id="playersList" class="players-list"></ul>
+                
+                <div class="game-settings">
+                    <h3><i class="fa-solid fa-brain"></i> توزيع الأدوار الذكي</h3>
+                    <p class="settings-hint">يتكيف النظام تلقائياً (ذئاب، قرويون، طبيب، محقق، ساحر، صياد) بناءً على العدد الإجمالي.</p>
+                </div>
+
+                <button id="startGameBtn" class="primary-btn wide pulse"><i class="fa-solid fa-play"></i> ابدأ اللعبة وتوزيع الأدوار</button>
+            </div>
+        </section>
+
+        <!-- Role Reveal Screen (3D Flip Card) -->
+        <section id="revealScreen" class="screen">
+            <div class="card text-center glow-card">
+                <h2><i class="fa-solid fa-eye-slash"></i> كشف الهوية السرية</h2>
+                <p class="instruction">أعطِ الهاتف للاعب: <strong id="currentPlayerName" class="highlight">---</strong></p>
+                
+                <!-- 3D Flip Card Container -->
+                <div class="flip-card-container" id="flipCardContainer">
+                    <div class="flip-card" id="roleFlipCard">
+                        <!-- Front Face -->
+                        <div class="card-face card-front">
+                            <div class="card-front-content">
+                                <i class="fa-solid fa-shield-cat icon-pulse"></i>
+                                <h3>انقر لقلب البطاقة وكشف دورك</h3>
+                                <p>تأكد ألا ينظر أحد غيرك للشاشة!</p>
+                            </div>
+                        </div>
+                        <!-- Back Face -->
+                        <div class="card-face card-back" id="cardBackFace">
+                            <div class="role-img-box">
+                                <img id="roleImg" src="" alt="Role">
+                            </div>
+                            <h3 id="roleTitleHeader">دورك هنا</h3>
+                            <p id="roleDescHeader">وصف الدور...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <button id="nextPlayerBtn" class="primary-btn wide hidden"><i class="fa-solid fa-arrow-left"></i> اللاعب التالي</button>
+            </div>
+        </section>
+
+        <!-- Main Game Engine Screen -->
+        <section id="gameScreen" class="screen">
+            <div class="card glow-card">
+                <div class="status-bar">
+                    <span id="dayCounter"><i class="fa-solid fa-moon"></i> الليلة 1</span>
+                    <span id="aliveCount"><i class="fa-solid fa-heart-pulse"></i> الأحياء: 0</span>
+                </div>
+
+                <div id="actionArea" class="action-area">
+                    <!-- Dynamic Action Text & Buttons -->
+                </div>
+
+                <div class="game-log">
+                    <h3><i class="fa-solid fa-scroll"></i> سجل أحداث القرية</h3>
+                    <div id="logContent" class="log-content"></div>
+                </div>
+
+                <button id="nextPhaseBtn" class="primary-btn wide danger hidden"><i class="fa-solid fa-forward"></i> الانتقال للمرحلة التالية</button>
+            </div>
+        </section>
+
+        <!-- Game Over Screen -->
+        <section id="gameOverScreen" class="screen">
+            <div class="card text-center glow-card">
+                <div class="game-over-img">
+                    <img id="winnerImg" src="https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=600&q=80" alt="Winner">
+                </div>
+                <h1 id="winnerTitle">انتصر الفريق!</h1>
+                <p id="winnerDesc"></p>
+                <button id="restartBtn" class="primary-btn wide pulse"><i class="fa-solid fa-rotate-right"></i> لعبة جديدة</button>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
