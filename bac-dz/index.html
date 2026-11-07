@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة البكالوريا الشاملة | طريقك نحو النجاح</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- شريط التنقل -->
+    <header class="navbar">
+        <div class="logo">
+            <span>🎓</span> <span>باك<span>توب</span></span>
+        </div>
+        <nav class="nav-links">
+            <a href="#hero" class="active">الرئيسية</a>
+            <a href="#streams">الشعب</a>
+            <a href="#calculator">حاسبة المعدل</a>
+        </nav>
+    </header>
+
+    <!-- الواجهة الرئيسية -->
+    <section id="hero" class="hero">
+        <div class="hero-container">
+            <div class="hero-badge">🚀 المنصة الأولى لتلاميذ البكالوريا 2026</div>
+            <h1 class="hero-title">كل ما تحتاجه للحصول على <span class="highlight">البكالوريا بمعدل ممتاز</span></h1>
+            <p class="hero-subtitle">ملخصات شاملة، مواضيع محلولة، تمارين مقترحة، وحاسبة معدل دقيقة مصممة خصيصاً لمساعدتك على التفوق.</p>
+            <div class="hero-buttons">
+                <a href="#streams" class="btn btn-primary">اختر شعبتك الآن</a>
+                <a href="#calculator" class="btn btn-secondary">حساب المعدل</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الشعب الدراسية -->
+    <section id="streams" class="streams-section">
+        <div class="section-header">
+            <h2>اختر شعبتك الدراسية</h2>
+            <p>محتوى مخصص ومصنف بدقة حسب كل شعبة</p>
+        </div>
+        <div class="streams-grid">
+            <div class="stream-card featured">
+                <div class="card-tag">الأكثر طلباً</div>
+                <div class="stream-icon">⚙️</div>
+                <h3>تقني رياضي</h3>
+                <p>هندسة كهربائية، ميكانيكية، مدنية، وطرائق مع دروس الفيزياء والرياضيات المكثفة.</p>
+                <button class="btn-card">تصفح المواد</button>
+            </div>
+            <div class="stream-card">
+                <div class="stream-icon">🔬</div>
+                <h3>علوم تجريبية</h3>
+                <p>علوم الطبيعة والحياة، الفيزياء، والرياضيات مع حلول التمارين النموذجية.</p>
+                <button class="btn-card">تصفح المواد</button>
+            </div>
+            <div class="stream-card">
+                <div class="stream-icon">📐</div>
+                <h3>رياضيات</h3>
+                <p>تعمق في التعاميم والرياضيات المتقدمة، الفيزياء والعلوم التكنولوجية.</p>
+                <button class="btn-card">تصفح المواد</button>
+            </div>
+            <div class="stream-card">
+                <div class="stream-icon">📊</div>
+                <h3>تسيير واقتصاد</h3>
+                <p>المحاسبة المالية، الإدارة، القانون، الاقتصاد والإحصاء.</p>
+                <button class="btn-card">تصفح المواد</button>
+            </div>
+            <div class="stream-card">
+                <div class="stream-icon">📜</div>
+                <h3>آداب وفلسفة</h3>
+                <p>مقالات فلسفية جاهزة، تحليل النصوص الأدبية، التاريخ والجغرافيا.</p>
+                <button class="btn-card">تصفح المواد</button>
+            </div>
+            <div class="stream-card">
+                <div class="stream-icon">🌐</div>
+                <h3>لغات أجنبية</h3>
+                <p>اللغة الفرنسية، الإنجليزية، الإسبانية، الألمانية، والإيطالية.</p>
+                <button class="btn-card">تصفح المواد</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم حاسبة المعدل التفاعلية -->
+    <section id="calculator" class="calculator-section">
+        <div class="section-header">
+            <h2>حاسبة معدل البكالوريا 🎓</h2>
+            <p>أدخل نقطتك في كل مادة لحساب المعدل النهائي بدقة</p>
+        </div>
+        <div class="calculator-card">
+            <div class="calc-group">
+                <label for="stream-select">اختر الشعبة:</label>
+                <select id="stream-select" class="calc-input">
+                    <option value="tech-math">تقني رياضي (هندسة كهربائية/ميكانيكية...)</option>
+                    <option value="sciences">علوم تجريبية</option>
+                    <option value="math">رياضيات</option>
+                </select>
+            </div>
+            
+            <div id="subjects-inputs" class="subjects-grid">
+                <!-- يتم تعبئتها تلقائياً أو يدوياً -->
+            </div>
+
+            <button id="calc-btn" class="btn btn-primary btn-calc">احسب المعدل الآن</button>
+
+            <div id="result-box" class="result-box hidden">
+                <h3>معدلك المتوقع:</h3>
+                <div id="final-score">00.00</div>
+                <p id="score-msg"></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- الفوتر -->
+    <footer class="footer">
+        <p>جميع الحقوق محفوظة © 2026 | منصة البكالوريا الجزائرية</p>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
